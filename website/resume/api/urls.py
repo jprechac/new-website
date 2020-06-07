@@ -9,7 +9,7 @@ from . import views
 # -----------------------------------------------------------------------------
 
 router = routers.DefaultRouter()
-router.register("jobs", views.JobReadOnlyViewset, "jobs")
+router.register("items", views.ItemReadOnlyViewset, "items")
 
 urlpatterns = [
     path("", include(router.urls)),
