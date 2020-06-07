@@ -2,3 +2,11 @@
 
 __pycache__
 *.pyc
+
+node_modules
+
+*.log
+*.pot
+local_settings.pycdb.sqlite3
+media
+
