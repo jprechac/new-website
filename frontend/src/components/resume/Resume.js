@@ -6,6 +6,7 @@ import React, { Component, Fragment } from 'react';
 // import Item from './Item';
 import Education from './items/Education';
 import WorkExperience from './items/WorkExperience';
+import VolunteerExperience from './items/VolunteerExperience';
 
 export class Resume extends Component {
     // static propTypes = {
@@ -29,6 +30,7 @@ export class Resume extends Component {
             <Fragment>
                 <Education />
                 <WorkExperience />
+                <VolunteerExperience />
             </Fragment>
         )
     }

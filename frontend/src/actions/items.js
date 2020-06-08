@@ -31,6 +31,22 @@ export const getWorkExperienceItems = () => dispatch => {
         .catch(err => console.log(err));
 };
 
+export const getVolunteerExperienceItems = () => dispatch => {
+    const urlParams = {
+        section: 'volunteer-experience'
+    }
+    axios.get(url, {
+        params: urlParams
+    })
+        .then(res => {
+            dispatch({
+                type: GET_VOLUNTEER_EXPERIENCE_ITEMS,
+                payload: res.data
+            });
+        })
+        .catch(err => console.log(err));
+};
+
 export const getEducationItems = () => dispatch => {
     const urlParams = {
         section: 'education'

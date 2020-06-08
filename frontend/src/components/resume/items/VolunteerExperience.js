@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getWorkExperienceItems } from '../../../actions/items';
+import { getVolunteerExperienceItems } from '../../../actions/items';
 
-import WorkItem from './WorkItem';
+import VolunteerItem from './VolunteerItem';
 
 
-class WorkExperience extends Component {
+class VolunteerExperience extends Component {
     componentDidMount() {
-        this.props.getWorkExperienceItems();
+        this.props.getVolunteerExperienceItems();
     }
 
     get displayHTML() {
@@ -16,20 +16,19 @@ class WorkExperience extends Component {
         var display;
 
         if (numberOfItems !== 0) {
+            // there are items to display
             display = (
                 <Fragment>
-                    <h2>Work Experience</h2>
+                    <h2>Volunteer Experience</h2>
                     {this.props.items.map(item => (
                         <div key={item.id}>
-                            <WorkItem item={item} />
+                            <VolunteerItem item={item} />
                         </div>
                     ))}
                 </Fragment>
             )
         } else {
-            display = (
-                <Fragment></Fragment>
-            )
+            display = <Fragment></Fragment>
         }
 
         return display;
@@ -41,7 +40,7 @@ class WorkExperience extends Component {
 }
 
 const mapStateToProps = state => ({
-    items: state.items.work_items
+    items: state.items.volunteer_items
 });
 
-export default connect(mapStateToProps, { getWorkExperienceItems })(WorkExperience);
+export default connect(mapStateToProps, { getVolunteerExperienceItems })(VolunteerExperience);
