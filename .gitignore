@@ -7,6 +7,9 @@ node_modules
 
 *.log
 *.pot
-local_settings.pycdb.sqlite3
+local_settings.py
+*.sqlite3
 media
+
+
 
