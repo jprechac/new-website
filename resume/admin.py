@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Bullet, Item
+from .utils.admin import actions
 from .utils.admin.inlines import BulletInline
 
 # -----------------------------------------------------------------------------
@@ -8,6 +9,8 @@ from .utils.admin.inlines import BulletInline
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
+    actions = [actions.activate_item, actions.deactivate_item]
+
     fieldsets = (
         (None, {
             "fields": ('section', 'title', 'institution_name',),
