@@ -10,7 +10,7 @@ class DateFormated extends Component {
             value = "Present";
         } else {
             date = new Date(date);
-            value = monthNames[date.getUTCMonth()] + ", " + date.getUTCFullYear();
+            value = monthNames[date.getUTCMonth()] + " " + date.getUTCFullYear();
         }
 
         return (

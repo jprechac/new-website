@@ -10,11 +10,11 @@ from .utils.admin.inlines import BulletInline
 class ItemAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
-            "fields": ('title', 'institution_name',),
+            "fields": ('section', 'title', 'institution_name',),
             "classes": ('extrapretty', 'wide',),
         }),
         ("Descriptors", {
-            "fields": ('city', 'state', 'start_date', 'end_date', 'gpa', 'display_description',),
+            "fields": ('city', 'state', 'start_date', 'end_date', 'class_year', 'gpa', 'display_description',),
             "classes": ('extrapretty', 'wide',),
         }),
         ("Extras", {
@@ -27,8 +27,26 @@ class ItemAdmin(admin.ModelAdmin):
         'date_created', 'last_changed',
     )
 
+    list_display = (
+        'title',
+        'institution_name',
+        'section',
+        'active',
+    )
+    list_filter = (
+        'section',
+        ('active', admin.BooleanFieldListFilter),
+    )
+
     inlines = [
         BulletInline,
+    ]
+
+    search_fields = [
+        'title',
+        'institution_name',
+        'display_description',
+        'description',
     ]
 
 

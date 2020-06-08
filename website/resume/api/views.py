@@ -17,12 +17,17 @@ class ItemReadOnlyViewset(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.AllowAny,]
 
     def get_queryset(self):
-        # base_jobs = Job.objects.filter(active=True)
+        filters = {
+            'active': True
+        }
 
-        # combined = base_jobs.order_by('-is_present', '-end_date', '-start_date')
+        params = self.request.query_params
+        section = params.get('section', None)
+        if section:
+            filters['section'] = section
 
         # return combined
-        items = Item.objects.filter(active=True).order_by('-is_present', '-end_date', '-start_date').prefetch_related(
+        items = Item.objects.filter(**filters).order_by('-is_present', '-end_date', '-start_date').prefetch_related(
             Prefetch(
                 'bullets',
                 queryset=Bullet.objects.filter(active=True)

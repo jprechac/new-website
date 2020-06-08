@@ -8,6 +8,22 @@ from . import managers
 
 class Item(models.Model):
 
+    EDUCATION = 'education'
+    PROJECT = 'project'
+    WORK = 'work-experience'
+    VOLUNTEER = 'volunteer-experience'
+    _section_choices = (
+        (EDUCATION, 'Education'),
+        (PROJECT, 'Project'),
+        (WORK, 'Work Experience'),
+        (VOLUNTEER, 'Volunteer Experience'),
+    )
+    section = models.CharField(
+        max_length=255,
+        choices=_section_choices,
+        null=False, blank=False
+    )
+
     title = models.CharField(
         max_length=255,
         null=False, blank=False,
@@ -38,6 +54,11 @@ class Item(models.Model):
     )
 
     display_description = models.TextField(
+        null=True, blank=True
+    )
+
+    class_year = models.CharField(
+        max_length=255,
         null=True, blank=True
     )
     gpa = models.DecimalField(

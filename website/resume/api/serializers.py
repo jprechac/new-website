@@ -31,6 +31,7 @@ class ItemSerializer(serializers.ModelSerializer):
             'start_date',
             'end_date',
             'gpa',
+            'class_year',
             'display_description',
             'bullets',
         ]
