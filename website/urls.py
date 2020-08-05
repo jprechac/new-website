@@ -22,8 +22,10 @@ api_urls = [
 
 
 urlpatterns = [
+    # frontend urls
+    path("", include('frontend.urls')),
+
     path('admin/', admin.site.urls),
-    path("", include('frontend.urls')), # frontend urls
 
     # api paths
     path("api/", include(api_urls)),

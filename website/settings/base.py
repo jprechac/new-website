@@ -15,7 +15,7 @@ import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,10 +27,7 @@ SECRET_KEY = 'npy=x15s&(1y3rz!=37dw_b)^$^6mscchf#9och6g@1z##&23d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '.herokuapp.com',
-    '*.herokuapp.com',
-]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -130,11 +127,52 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'staticfiles'),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'assets'),
+    # os.path.join(BASE_DIR, 'resources'),
+)
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-os.makedirs(STATIC_ROOT, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
+
+
+# -----------------------------------------------------------------------------
+##### REST Framework #####
+# -----------------------------------------------------------------------------
+
+REST_FRAMEWORK = {
+    # https://www.django-rest-framework.org/api-guide/settings/#default_renderer_classes
+    # Remove the Browsable API Renderer in production... see 'prod.py'
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ],
+
+    # https://www.django-rest-framework.org/api-guide/settings/#default_parser_classes
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser'
+    ],
+
+    # https://www.django-rest-framework.org/api-guide/settings/#default_authentication_classes
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication'
+    ],
+
+    # https://www.django-rest-framework.org/api-guide/settings/#default_permission_classes
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+
+    # https://www.django-rest-framework.org/api-guide/settings/#default_pagination_class
+    # https://www.django-rest-framework.org/api-guide/pagination/
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    # https://www.django-rest-framework.org/api-guide/settings/#page_size
+    # 'PAGE_SIZE': 100,
+    
+}
+
 
 # heroku stuff
 django_heroku.settings(locals())

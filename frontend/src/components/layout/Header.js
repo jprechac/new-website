@@ -12,13 +12,16 @@ export class Header extends Component {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <a className="navbar-brand" href="#">Jordan Prechac</a>
-                        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <a className="navbar-brand" href="/">Jordan Prechac</a>
 
+                        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             {/* extra stuff */}
                             <li className="nav-item">
-                                <a className="nav-link" href="https://www.linkedin.com/in/jordanprechac/" title="LinkedIn" target="_blank">LinkedIn</a>
+                                <a className='nav-link' title="Resume" href='/resume'>Resume</a>
                             </li>
+                            {/* <li className="nav-item">
+                                <a className="nav-link" href="https://www.linkedin.com/in/jordanprechac/" title="LinkedIn" target="_blank">LinkedIn</a>
+                            </li> */}
                         </ul>
                     </div>
                 </div>
