@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
-import IntroImage from './IntroImage';
+function IntroImage(props) {
+    const headshot = '/static/img/headshot.jpg';
+    return (
+        <div className="col-md-auto">
+            <img style={{ borderRadius: "30%" }} src={headshot} alt="Jordan's headshot"
+                height="200px" width="200px" />
+        </div>
+    );
+}
 
 function IntroText() {
     return (

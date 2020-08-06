@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+const wrapperStyle = {
+    marginTop: '10px',
+    marginBottom: '10px',
+    paddingTop: '5px',
+}
+const paragraphStyle = {
+    padding: '0px 15px',
+}
+
 class ExperienceDetail extends Component {
+
     render() {
         const { title, link, image, style, quote, description, ...props} = this.props;
         return (
-            <div>
+            <div style={wrapperStyle}>
                 <div className='row'>
                     <div className='col-md-auto'>
                         <img src={image.src} alt={image.alt} height={image.height || '200px'} width={image.width || '200px'} />
@@ -20,6 +30,7 @@ class ExperienceDetail extends Component {
                     </div>
                 </div>
                 <div>
+                {/* <div style={paragraphStyle}> */}
                     <p>{description}</p>
                 </div>
             </div>
