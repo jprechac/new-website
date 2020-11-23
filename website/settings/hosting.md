@@ -1,0 +1,1 @@
+https://dev.to/spyker77/how-to-connect-godaddy-domain-with-heroku-and-cloudflare-mdh
