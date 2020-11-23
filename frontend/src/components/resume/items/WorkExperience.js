@@ -11,12 +11,11 @@ class WorkExperience extends Component {
         this.props.getWorkExperienceItems();
     }
 
-    get displayHTML() {
+    render() {
         const numberOfItems = this.props.items.length;
-        var display;
-
-        if (numberOfItems !== 0) {
-            display = (
+        var display = numberOfItems === 0 ? 
+            (<Fragment></Fragment>) :
+            (
                 <Fragment>
                     <h2>Work Experience</h2>
                     {this.props.items.map(item => (
@@ -26,17 +25,8 @@ class WorkExperience extends Component {
                     ))}
                 </Fragment>
             )
-        } else {
-            display = (
-                <Fragment></Fragment>
-            )
-        }
 
         return display;
-    }
-
-    render() {
-        return this.displayHTML;
     }
 }
 
