@@ -38,6 +38,9 @@ function Home() {
                         </div>
                     </div>
                     <p>
+                        I am currently available for freelance development and cloud architecting work on <a href="https://www.fiverr.com/jordanprechac" title="Fiverr" target="_blank">Fiverr</a> and <a href="https://www.upwork.com/o/profiles/users/~0113a8981b0f9806e2/" title="Fiverr" target="_blank">Upwork</a>. If you need work in Python, REST API Development, or AWS please check me out on either of these platforms.
+                    </p>
+                    <p>
                         If you would like to get in touch, please connect with/message me on <a
                             href="https://www.linkedin.com/in/jordanprechac/" title="LinkedIn"
                             target="_blank">LinkedIn</a>.
